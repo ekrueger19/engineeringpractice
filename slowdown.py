@@ -11,8 +11,8 @@ close = RPL.digitalRead(pin)
 motorL = 1
 motorR = 2
 #motor speeds
-x = 1000
-y = 2500
+x = 2500
+y = 1000
 #it runs when the pin is not reading anything
 while close == 1:
     #to run motors at regular speed
