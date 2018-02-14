@@ -12,7 +12,7 @@ right = 23
 # and vice versa
 # problem: doesn't always sense from both sides.
 
-motorL = 1
+motorL = 2
 motorR = 0
 
 # R 1000 is forward
