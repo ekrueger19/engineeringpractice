@@ -20,7 +20,7 @@ motorR = 2
 
 while True:
     RPL.servoWrite(motorR, 1000)
-    RPL.servoWrite(motorL, 2000)
+    print "right motor on"
     future = time.time() + 2
     if RPL.digitalRead(16) == 0 or RPL.digitalRead(23) == 0: # something ahead or to right, pivot
         RPL.servoWrite(motorL, 0)
