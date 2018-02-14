@@ -7,7 +7,6 @@ future = now
 close = RPL.digitalRead(16)
 motorL = 1
 motorR = 2
-x = 0
 
 RPL.servoWrite(1, 2000)
 RPL.servoWrite(2, 1000)
