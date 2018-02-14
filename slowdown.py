@@ -9,14 +9,14 @@ pin = 16
 close = RPL.digitalRead(pin)
 #which pin the motor is in
 motorL = 1
-mororR = 2
+motorR = 2
 #motor speeds
 x = 1000
 y = 2500
 #it runs when the pin is not reading anything
 while close == 1:
     #to run motors at regular speed
-    RPL.servoWrite(mororL, x)
+    RPL.servoWrite(motorL, x)
     RPL.servoWrite(motorR, y)
     if close == 0:
         break
@@ -26,10 +26,10 @@ while close == 0:
     now = time.time()
     fufute = now - 1.5
     #to run motors slower
-    RPL.servoWrite(mororL, x - 900)
+    RPL.servoWrite(motorL, x - 900)
     RPL.servoWrite(motorR, y - 900)
     #function to stop the motors
     if future > 1.5:
         RPL.servoWrite(motorL, 0)
-        RPL.servoWrite(mororR, 0)
+        RPL.servoWrite(motorR, 0)
         break
