@@ -4,8 +4,6 @@ import time
 import setup
 import RoboPiLib as RPL
 
-#to make definable in a function
-close = RPL.digitalRead(16)
 #which pin the motor is in
 motorL = 0
 motorR = 2
@@ -13,14 +11,14 @@ motorR = 2
 x = 2000
 y = 1000
 #it runs when the pin is not reading anything
-while close == 1:
+while RPL.digitalRead(16) == 1:
     #to run motors at regular speed
     RPL.servoWrite(motorL, x)
     RPL.servoWrite(motorR, y)
-    if close == 0:
+    if RPL.digitalRead(16) == 0:
         break
 #it stops when the sensor senses something
-while close == 0:
+while RPL.digitalRead(16) == 0:
     #so the robot only runs 1.5 seconds
     now = time.time()
     future = time.time() + 0.5
