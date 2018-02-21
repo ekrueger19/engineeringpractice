@@ -25,15 +25,15 @@ while True:
     RPL.servoWrite(motorR, 2000)
     RPL.servoWrite(motorL, 1000)
     print "GO"
+
     future = time.time() + 1
-    if RPL.digitalRead(17) == 0: # or RPL.digitalRead(23) == 0: # something ahead or to right, pivot
-        while True:
+    if RPL.digitalRead(16) == 0 or RPL.digitalRead(23) == 0: # something ahead or to right, pivot
+        future = time.time() + 1
+        RPL.servoWrite(motorL, 0)
+        while time.time() > future:
             RPL.servoWrite(motorL, 2000)
-            RPL.servoWrite(motorR, 0)
             print "SPIN"
-            if time.time() > future:
-                break
-                print "it worked?"
+
 
 
 # possible problem: sensor not picking up walls
