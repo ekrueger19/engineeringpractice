@@ -10,6 +10,7 @@ future = now
 
 front = 16
 right = 23
+left = 22
 
 # idea: if reading from right and front, turn off left motor
 # and vice versa
@@ -29,13 +30,21 @@ while True:
         RPL.servoWrite(motorL, 0)
         RPL.servoWrite(motorR, 0)
         while time.time() < future:
-            RPL.servoWrite(motorL, 1000)
-    if RPL.digitalRead(right) == 0: # something to right, pivot
+            RPL.servoWrite(motorR, 2000)
+    elif RPL.digitalRead(right) == 0: # something to right, pivot
         future = time.time() + 2
         RPL.servoWrite(motorL, 0)
         RPL.servoWrite(motorR, 0)
         while time.time() < future:
+            RPL.servoWrite(motorR, 2000)
             RPL.servoWrite(motorL, 0)
+    elif RPL.digitalRead(left) == 0: # something to right, pivot
+        future = time.time() + 2
+        RPL.servoWrite(motorL, 0)
+        RPL.servoWrite(motorR, 0)
+        while time.time() < future:
+            RPL.servoWrite(motorR, 0)
+            RPL.servoWrite(motorL, 2000)
 
 # right now it doesn't work, always just prints 'back it up'
 # ideas: split it up, make diff one for right and front, then make clause of the other inside the if
