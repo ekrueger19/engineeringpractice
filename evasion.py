@@ -27,7 +27,7 @@ while True:
     print "GO"
 
     future = time.time() + 1
-    if RPL.digitalRead(16) == 0 or RPL.digitalRead(23) == 0: # something ahead or to right, pivot
+    if RPL.digitalRead(front) == 0 or RPL.digitalRead(right) == 0: # something ahead or to right, pivot
         future = time.time() + 1
         RPL.servoWrite(motorL, 0)
         while time.time() > future:
