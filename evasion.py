@@ -8,12 +8,8 @@ import time
 now = time.time()
 future = now
 
-front = 17
+front = 16
 right = 23
-
-# idea: if reading from right and front, turn off left motor
-# and vice versa
-# problem: doesn't always sense from both sides.
 
 motorL = 0
 motorR = 2
@@ -35,6 +31,9 @@ while True:
         while time.time() > future:
             RPL.servoWrite(motorL, 2000)
             print "SPIN"
+
+# right now it doesn't work, always just prints 'back it up'
+# ideas: split it up, make diff one for right and front, then make clause of the other inside the if
 
 
 
