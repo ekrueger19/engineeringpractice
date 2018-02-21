@@ -16,10 +16,10 @@ motorL = 2
 motorR = 0
 
 # R 1000 is forward
-# L 2000 is forward
+# L 2500 is forward
 while True:
-    RPL.servoWrite(motorR, 1000)
-    RPL.servoWrite(motorL, 2500)
+    RPL.servoWrite(motorR, 2000)
+    RPL.servoWrite(motorL, 1500)
     print "motors on"
     RPL.servoWrite(motorL, 2500)
     future = time.time() + 2
