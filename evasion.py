@@ -24,10 +24,12 @@ motorR = 2
 while True:
     RPL.servoWrite(motorR, 2000)
     RPL.servoWrite(motorL, 1000)
-    print "GO"
-
-    future = time.time() + 1
-    if RPL.digitalRead(front) == 0 or RPL.digitalRead(right) == 0: # something ahead or to right, pivot
+    if RPL.digitalRead(front) == 0 and RPL.digitalRead(right) == 0:
+        while RPL.digitalRead(front) == 0 and RPL.digitalRead(right) == 0:
+            RPL.servoWrite(motorL, 2000)
+            RPL.servoWrite(motorR, 1000)
+            print "back it up"
+    elif RPL.digitalRead(front) == 0 or RPL.digitalRead(right) == 0: # something ahead or to right, pivot
         future = time.time() + 1
         RPL.servoWrite(motorL, 0)
         while time.time() > future:
