@@ -24,8 +24,8 @@ while RPL.digitalRead(16) == 0:
     future = time.time() + 0.5
     #to run motors slower
     while time.time() < future:
-        RPL.servoWrite(motorL, x - 400)
-        RPL.servoWrite(motorR, y - 400)
+        RPL.servoWrite(motorL, 1600)
+        RPL.servoWrite(motorR, 600)
         #function to stop the motors
         if time.time() >= future:
             RPL.servoWrite(motorL, 0)
