@@ -19,7 +19,7 @@ while True:
             future = time.time() + 2
             print "stopping 1"
             while time.time() < future:
-                RPL.servoWrite(0, 1000)
+                RPL.servoWrite(2, 2000)
                 print "turning 1"
                 if time.time() >= future:
                     RPL.servoWrite(0, 1000)
@@ -36,7 +36,7 @@ while True:
             RPL.servoWrite(2, 0)
             print "stopping 2"
             while time.time() < future:
-                RPL.servoWrite(0, 1000)
+                RPL.servoWrite(2, 2000)
                 print "turning 2"
                 if time.time() >= future:
                     RPL.servoWrite(0, 1000)
