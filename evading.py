@@ -13,6 +13,7 @@ RPL.servoWrite(2, 2000)
 print "going original"
 while True:
     while RPL.digitalRead(16) == 0:
+        future = time.time() + 1
         while time.time() < future:
             RPL.servoWrite(2, 2000)
             if time.time() >= future:
@@ -22,6 +23,7 @@ while True:
         RPL.servoWrite(0, 1000)
         RPL.servoWrite(2, 2000)
         if RPL.digitalRead(16) == 0:
+            future = time.time() + 1
             while time.time() < future:
                 RPL.servoWrite(2, 2000)
                 if time.time() >= future:
