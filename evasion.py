@@ -8,31 +8,46 @@ import time
 now = time.time()
 future = now
 
-front = 17
+front = 16
 right = 23
+left = 22
 
 # idea: if reading from right and front, turn off left motor
 # and vice versa
 # problem: doesn't always sense from both sides.
 
-motorL = 0
-motorR = 2
+motorL = 2
+motorR = 0
 
-# R 2000 is forward
-# L 1000 is forward
-
+# R 1000 is forward
+# L 2500 is forward
 while True:
     RPL.servoWrite(motorR, 2000)
     RPL.servoWrite(motorL, 1000)
-    print "GO"
-
-    future = time.time() + 1
-    if RPL.digitalRead(front) == 0 or RPL.digitalRead(right) == 0: # something ahead or to right, pivot
-        future = time.time() + 1
+    future = time.time() + 2
+    if RPL.digitalRead(front) == 0: # something ahead, pivot
+        future = time.time() + 2
         RPL.servoWrite(motorL, 0)
-        while time.time() > future:
+        RPL.servoWrite(motorR, 0)
+        while time.time() < future:
+            RPL.servoWrite(motorR, 2000)
+    elif RPL.digitalRead(right) == 0: # something to right, pivot
+        future = time.time() + 2
+        RPL.servoWrite(motorL, 0)
+        RPL.servoWrite(motorR, 0)
+        while time.time() < future:
+            RPL.servoWrite(motorR, 2000)
+            RPL.servoWrite(motorL, 0)
+    elif RPL.digitalRead(left) == 0: # something to right, pivot
+        future = time.time() + 2
+        RPL.servoWrite(motorL, 0)
+        RPL.servoWrite(motorR, 0)
+        while time.time() < future:
+            RPL.servoWrite(motorR, 0)
             RPL.servoWrite(motorL, 2000)
-            print "SPIN"
+
+# right now it doesn't work, always just prints 'back it up'
+# ideas: split it up, make diff one for right and front, then make clause of the other inside the if
 
 
 
