@@ -12,7 +12,7 @@ RPL.servoWrite(0, 1000)
 RPL.servoWrite(2, 2000)
 while True:
     while RPL.digitalRead(16) == 0:
-        future = time.time() + 1
+        future = time.time() +2
         while time.time() < future:
             RPL.servoWrite(2, 2000)
             if time.time() >= future:
