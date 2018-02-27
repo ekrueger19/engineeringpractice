@@ -18,15 +18,15 @@ motorR = 0
 # R 1000 is forward
 # L 2500 is forward
 while True:
-    RPL.servoWrite(motorR, 2000)
-    RPL.servoWrite(motorL, 1000)
-    RPL.servoWrite(motorL, 1000)
+    RPL.servoWrite(motorR, 1000)
+    RPL.servoWrite(motorL, 2000)
+    RPL.servoWrite(motorL, 2000)
     if RPL.digitalRead(16) == 0: # something ahead or to right, pivot
         future = time.time() + 2
+        RPL.servoWrite(motorR, 1000)
         RPL.servoWrite(motorL, 0)
-        RPL.servoWrite(motorR, 0)
         while time.time() < future:
-            RPL.servoWrite(motorR, 2500)
+            RPL.servoWrite(motorR, 1000)
 
 
 
