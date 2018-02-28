@@ -10,7 +10,6 @@ front = 16
 
 RPL.servoWrite(0, 1000)
 RPL.servoWrite(2, 2000)
-RPL.servoWrite(2, 2000)
 while True:
     while RPL.digitalRead(16) == 0:
         RPL.servoWrite(0, 0)
