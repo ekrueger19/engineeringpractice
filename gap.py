@@ -10,10 +10,10 @@ motorL = 1
 # motorR forward = 1000
 # motorL forward = 2000
 
-while RPL.digitalRead(23) == 1:
+while RPL.digitalRead(23) == 0:
   RPL.servoWrite(motorR,1000)
   RPL.servoWrite(motorL,2000)
-  if RPL.digitalRead(23) == 0:
+  if RPL.digitalRead(23) == 1:
     future = time.time() + 2
     RPL.servoWrite(motorR,1000)
     RPL.servoWrite(motorL,0)
