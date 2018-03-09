@@ -11,10 +11,6 @@ motorR = 0
 right = 23
 front = 16
 
-def turn(future)
-
-
-
 
 RPL.servoWrite(motorR, 1000)
 RPL.servoWrite(motorR, 1000)
