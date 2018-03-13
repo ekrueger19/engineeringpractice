@@ -7,14 +7,14 @@ future = now
 
 # next step! add in minimum turning time of ~= 1 second
 
-motorL = 2
-motorR = 0
+motorL = 0
+motorR = 2
 
 right = 23
 front = 16
-left = 17
+left = 24
 
-rgo = 1000
+rgo = 2000
 lgo = 2000
 
 RPL.servoWrite(motorR, rgo)
