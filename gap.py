@@ -20,5 +20,6 @@ while RPL.digitalRead(23) == 0:
     future = time.time() + 2
     RPL.servoWrite(motorR,2000)
     RPL.servoWrite(motorL,0)
-    while time.time() < future:
+    while time.time() > future:
         RPL.servoWrite(motorR, 2000)
+        RPL.servoWrite(motorL, 1000)
