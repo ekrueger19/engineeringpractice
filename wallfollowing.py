@@ -8,7 +8,7 @@ future = now
 front = 16
 right = 23
 
-# idea: if reading from right and front, turn off left motor
+# idea: if reading from front, turn off left motor
 # and vice versa
 # problem: doesn't always sense from both sides.
 
@@ -16,7 +16,7 @@ motorL = 2
 motorR = 0
 
 # R 1000 is forward
-# L 2500 is forward
+# L 2000 is forward
 while True:
     RPL.servoWrite(motorR, 1000)
     RPL.servoWrite(motorL, 2000)
