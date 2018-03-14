@@ -5,6 +5,17 @@ import time
 now = time.time()
 future = now
 
+motorL = 0
+motorR = 2
+
+right = 23
+front = 16
+left = 24
+
+rgo = 2000
+lgo = 2000
+
+
 def Rmin(go)
     future = go + 1
     futureplus = future + 1
@@ -26,16 +37,6 @@ def Lmin(go)
         RPL.servoWrite(motorR, lgo)
 
 # next step! add in minimum turning time of ~= 1 second
-
-motorL = 0
-motorR = 2
-
-right = 23
-front = 16
-left = 24
-
-rgo = 2000
-lgo = 2000
 
 RPL.servoWrite(motorR, rgo)
 RPL.servoWrite(motorR, rgo)
