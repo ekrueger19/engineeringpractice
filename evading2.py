@@ -16,7 +16,7 @@ rgo = 2000
 lgo = 2000
 
 
-def Rmin(go)
+def Rmin(go):
     future = go + 1
     futureplus = future + 1
     while go < future:
@@ -26,7 +26,7 @@ def Rmin(go)
         RPL.servoWrite(motorL, rgo)
         RPL.servoWrite(motorR, rgo)
 
-def Lmin(go)
+def Lmin(go):
     future = go + 1
     futureplus = future + 1
     while go < future:
