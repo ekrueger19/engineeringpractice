@@ -50,7 +50,10 @@ while True:
         print "++++++"
         if RPL.digitalRead(front) != 0: # nothing in front, go
             now = time.time()
-            Rmin(now)
+            future = now + 1
+            while now < future:
+                RPL.servoWrite(motorL, rgo)
+                RPL.servoWrite(motorR, rgo)
             RPL.servoWrite(motorR, rgo)
             RPL.servoWrite(motorL, lgo)
             print "============="
@@ -61,7 +64,10 @@ while True:
         RPL.servoWrite(motorL, rgo) # pivot
         if RPL.digitalRead(right) != 0: # nothing to side, go
             now = time.time()
-            Rmin(now)
+            future = now + 1
+            while now < future:
+                RPL.servoWrite(motorL, rgo)
+                RPL.servoWrite(motorR, rgo)
             RPL.servoWrite(motorR, rgo)
             RPL.servoWrite(motorL, lgo)
             print ":::::::::::"
